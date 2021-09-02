@@ -3,6 +3,9 @@ help()
     echo "Usage:"
     echo "      create_baselist DIR1 DIR2 DIR3..."
     echo "Create BASELIST file in each given directory."
+    printf "\n"
+    echo "Options:"
+    echo "      -h display help"
 }
 
 if [ "$#" == 0 ]; then
