@@ -1,0 +1,32 @@
+help()
+{
+    echo "Usage:"
+    echo "      create_baselist DIR1 DIR2 DIR3..."
+    echo "Create BASELIST file in each given directory."
+}
+
+if [ "$#" == 0 ]; then
+    echo "Please provide at least one directory."
+    help
+    exit
+fi
+
+while getopts ":h" option; do
+   case $option in
+      h)
+         help
+         exit;;
+   esac
+done
+
+for d in "$@"
+do
+    dir=$d
+    len=${#dir}
+    last_char=${dir:len-1:1}
+    [ $last_char == "/" ] && dir=${dir:0:len-1}; # strip the trailing slash if needed
+
+    echo "BASELIST for $dir/"
+    basename -a $(ls $dir/*.dat) | sed "s/.dat//g" > $dir/BASELIST
+    cat $dir/BASELIST
+done

@@ -1,0 +1,39 @@
+help()
+{
+    echo "Usage:"
+    echo "      bin_to_dat [OPTION]... DIR1 DIR2 DIR3..."
+    echo "Convert all .bin files in each given directory to .dat files."
+    printf "\n"
+    echo "Options:"
+    echo "      -h display help"
+    echo "      -j MAX-JOBS    process at most MAX-JOBS .bin files in parallel"
+    
+}
+
+# init variables
+max_jobs=1
+while getopts ":hj:" option; do
+   case $option in
+      h)
+         help
+         exit;;
+      j)
+        max_jobs=${OPTARG}
+        shift $((OPTIND-1));;
+   esac
+done
+
+if [ "$#" == 0 ]; then
+    echo "Please provide at least one recording dir."
+    help
+    exit
+fi 
+
+all_bins=""
+for d in $@
+do
+    bins_in_d=$(ls $d*.bin | xargs)
+    all_bins="${all_bins} ${bins_in_d}"
+done
+
+echo $all_bins | xargs -n 1 -P $max_jobs Axona2dat3_15_128
