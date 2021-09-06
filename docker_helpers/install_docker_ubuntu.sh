@@ -1,15 +1,16 @@
-sh remove_docker_ubuntu.sh
+script_dir=$(dirname $0)
+sudo sh $script_dir/remove_docker_ubuntu.sh
 
-# create folders in $HOME for docker and containerd
-mkdir ~/docker_stuff
-mkdir ~/docker_stuff/docker
-mkdir ~/docker_stuff/containerd
-ln -s ~/docker_stuff/docker /var/lib/docker
-ln -s ~/docker_stuff/containerd /var/lib/containerd
+# create folders in /home for docker and containerd
+sudo mkdir /home/docker_stuff
+sudo mkdir /home/docker_stuff/docker
+sudo mkdir /home/docker_stuff/containerd
+sudo ln -s /home/docker_stuff/docker /var/lib/docker
+sudo ln -s /home/docker_stuff/containerd /var/lib/containerd
 
-apt-get update
+sudo apt-get update
 
-apt-get install \
+sudo apt-get install \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -22,5 +23,5 @@ echo \
   "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-apt-get update
-apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io

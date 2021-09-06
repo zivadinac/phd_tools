@@ -1,17 +1,18 @@
-sh remove_docker_centos.sh
+script_dir=$(dirname $0)
+sudo sh $script_dir/remove_docker_centos.sh
 
 # create folders in $HOME for docker and containerd
-mkdir ~/docker_stuff
-mkdir ~/docker_stuff/docker
-mkdir ~/docker_stuff/containerd
-ln -s ~/docker_stuff/docker /var/lib/docker
-ln -s ~/docker_stuff/containerd /var/lib/containerd
+sudo mkdir /home/docker_stuff
+sudo mkdir /home/docker_stuff/docker
+sudo mkdir /home/docker_stuff/containerd
+sudo ln -s /home/docker_stuff/docker /var/lib/docker
+sudo ln -s /home/docker_stuff/containerd /var/lib/containerd
 
-yum install -y yum-utils
+sudo yum install -y yum-utils
 
-yum-config-manager \
+sudo yum-config-manager \
     --add-repo \
     https://download.docker.com/linux/centos/docker-ce.repo
 
-yum install docker-ce docker-ce-cli containerd.io
-systemctl start docker
+sudo yum install docker-ce docker-ce-cli containerd.io
+sudo systemctl start docker
