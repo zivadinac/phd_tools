@@ -1,0 +1,1 @@
+for tt in $(seq 0 $1); do sort tet$tt/tet$tt.clu | uniq | wc -l; done | awk '{s+=$1} END {print s}'
