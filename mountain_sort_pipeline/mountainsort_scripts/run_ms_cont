@@ -1,0 +1,5 @@
+cp /usr/bin/mountainsort_scripts/* /usr/input
+
+bash ms_run_and_adapt.sh $1 $2 $3 $4
+
+bash /usr/input/remove_scripts.sh

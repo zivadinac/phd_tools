@@ -1,0 +1,9 @@
+cp * $1
+cd $1
+
+rm ws_interpolate
+ln -s $OLDPWD/ws_interpolate ws_interpolate
+
+bash ms_run_and_adapt.sh $2 $3 $4 $5
+
+bash remove_scripts.sh ./ $OLDPWD/
