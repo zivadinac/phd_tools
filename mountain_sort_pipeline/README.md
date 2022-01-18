@@ -2,24 +2,16 @@
 
 Pipeline was mainly written by [Igor Gridchyn](https://github.com/igridchyn) and packed by me into an easily usable docker container.
 
-## Installation
-    ```
-        sudo make
-    ```
-
 ## Usage
-    ******************************************************************************
 
     Put TEMPLATE.par, TEMPLATE.par.tet and geom.csv into INPUT_DIR, then:
 
-    Run mountain sort in a docker container.
-
-    ******************************************************************************
-
     ```
-    Usage:                                                                                                  
-          run_docker_ms INPUT_DIR ANIMAL DAY DTHOLD NCHAN                                                
+    cd mountainsort_scripts/
+    ./run_ms_local INPUT_DIR ANIMAL DAY THRESHOLD NUM_CHANNEL
     ```
+
+    This will create directory `INPUT_DIR/sorted/` with your sorted data.
 
 #### geom.csv
     Specifies tetrode geometry - the same in all cases and should just be copied from here.
