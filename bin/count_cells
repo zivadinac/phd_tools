@@ -1,1 +1,22 @@
-for tt in $(ls tet*/tet*.clu); do sort $tt | uniq | wc -l; done | awk '{s+=$1} END {print s}'
+help()
+{
+    echo "Usage:"
+    echo "      count_cells SORTED_DIR"
+    echo "Display total number of cells in data located within SORTED_DIR (use current folder by default)."
+    echo "Expects folder for each tetrode with a '.clu' file inside it ('tet0/tet0.clu etc.'):"
+    printf "\n"
+    echo "Options:"
+    echo "      -h display help"
+}
+
+while getopts ":hj:" option; do
+   case $option in
+      h)
+         help
+         exit;;
+   esac
+done
+
+sorted_dir=${1-.}
+sorted_dir=$(stripts $sorted_dir)
+for tt in $(ls $sorted_dir/tet*/tet*.clu); do sort $tt | uniq | wc -l; done | awk '{s+=$1} END {print s}'
