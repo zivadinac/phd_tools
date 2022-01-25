@@ -1,0 +1,24 @@
+help()
+{
+    echo "Usage:"
+    echo "      add_ts PATH"
+    echo "If PATH does not end with a '/' append it."
+    echo "Return './' if no PATH argument is passed."
+    printf "\n"
+    echo "Options:"
+    echo "      -h display help"
+}
+
+while getopts ":hj:" option; do
+   case $option in
+      h)
+         help
+         exit;;
+   esac
+done
+
+path=${1-.}
+len=${#path}
+last_char=${path:len-1:1}
+[ $last_char != "/" ] && path=$path/; # add the trailing slash if needed
+echo $path
