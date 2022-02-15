@@ -52,6 +52,7 @@ phy==2.0b5
 phylib==2.4.1
 pickleshare==0.7.5
 Pillow==9.0.0
+pip==21.2.4
 platformdirs==2.4.1
 probeinterface==0.2.6
 prompt-toolkit==3.0.26
@@ -77,6 +78,7 @@ quantities==0.13.0
 requests==2.27.1
 scikit-learn==1.0.2
 scipy==1.7.3
+setuptools==58.0.4
 six==1.16.0
 spikeinterface==0.92.0
 stack-data==0.1.4
@@ -90,4 +92,5 @@ typing_extensions==4.0.1
 urllib3==1.26.8
 watchdog==2.1.6
 wcwidth==0.2.5
+wheel==0.37.1
 zipp==3.7.0
