@@ -6,13 +6,13 @@ Install [Anaconda](https://www.anaconda.com/products/individual).
 Create conda virtual environment for mountainsort4:
 
 ```
-conda create --name ms_clust --file ms_clust_conda_req.txt
+conda env create -f ms_clust.yml
 ```
    
 Create conda virtual environment for spike interface and phy:
 
 ```
-conda create --name si_phy --file si_phy_conda_req.txt
+conda env create -f si_phy.yml
 ```
 
 ## Usage
