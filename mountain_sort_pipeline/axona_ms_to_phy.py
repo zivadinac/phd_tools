@@ -45,4 +45,4 @@ tet_dirs = list(filter(lambda tet: tet.is_dir() and tet.name.startswith("tet"), 
 if args.n_jobs <= 1:
     [__process_tet(tet.path, args.sampling_rate) for tet in tet_dirs]
 else:
-    Parallel(n_jobs=args.n_jobs)(delayed(__process_tet, args.sampling_rate)(tet.path) for tet in tet_dirs)
+    Parallel(n_jobs=args.n_jobs)(delayed(__process_tet)(tet.path, args.sampling_rate) for tet in tet_dirs)
