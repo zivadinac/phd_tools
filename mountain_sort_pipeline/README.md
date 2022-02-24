@@ -42,11 +42,11 @@ Put names without extension (.dat) of all input files that you wish to be proces
 You can use [create_baselist](../bin/create_baselist) script if you wish all your files to be processed together.
     
 ### Running mountainsort4
-Now you should be able to start mountainsort4:
+Now you should be able to start mountainsort4 (from [mountainsort_scripts](./mountainsort_scripts/) directory):
 
 ```
 conda activate ms_clust
-./mountainsort_scripts/run_ms_local INPUT_DIR ANIMAL DAY THRESHOLD NUM_CHANNEL
+./run_ms_local INPUT_DIR ANIMAL DAY THRESHOLD NUM_CHANNEL
 ```
 
 Your sorted data will be in `INPUT_DIR/sorted/` directory.
@@ -67,3 +67,5 @@ You should run phy from there, e.g:
 cd INPUT_DIR/sorted/tet0/phy_export
 phy template-gui params.py
 ```
+
+For detailed explanation on how to manually refine clusters using phy check [official guide](https://phy.readthedocs.io/en/latest/sorting_user_guide/).
