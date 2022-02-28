@@ -69,3 +69,15 @@ phy template-gui params.py
 ```
 
 For detailed explanation on how to manually refine clusters using phy check [official guide](https://phy.readthedocs.io/en/latest/sorting_user_guide/).
+
+
+### Converting output to *clu-res* format
+When done with manual curation you can convert data from phy format to Csicsvari group clu-res format.
+To do this run:
+
+```
+./phy_clu_res.sh INPUT_DIR/sorted/
+```
+
+This script will generate `.clu` and `.res` files for each tetrode (`phy_to_clu_res.py`) and merge them into together (`merge_tetrodes.py`).
+The result will be written into following files: `INPUT_DIR/sorted/merged.clu, INPUT_DIR/sorted/merged.res`; additionally there will be `INPUT_DIR/sorted/clu_origin.txt` which maps each cluster to the tetrode it was detected on.
